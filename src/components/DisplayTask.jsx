@@ -1,6 +1,6 @@
 import TaskItem from "./TaskItem";
 
-export default function DisplayTask(){
+export default function DisplayTask({tasks}){
     return(
         <div className="basis-1/3  shadow-custom relative">
             <div className="bg-[#3556AB] p-[27px]  flex items-center shadow-custom justify-center text-white">
@@ -33,7 +33,7 @@ export default function DisplayTask(){
             </div>
 
             <div className="h-[40vh] overflow-auto">
-                <TaskItem/>
+                {tasks?.map(task =><TaskItem task={task}/>)}
             </div>
             <button className="bg-[#123eb1] text-white font-bold text-xl rounded-full w-[50px] h-[50px] absolute bottom-9 right-5 items-center justify-center"> + </button>
       </div>
