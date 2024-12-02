@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 
 
-export default function EditTask({setTasks}){
+export default function EditTask({setTasks, tasks}){
     const [taskInput, setTaskInput] = useState('Training at the Gym')
     const handleChange = (event)=>setTaskInput(event.target.value)
-    const handleSubmit = ()=>setTasks(prevTask => [...prevTask, taskInput])
+    const handleSubmit = ()=>setTasks(prevTask => [...prevTask, {id: tasks.length + 1, task: taskInput}])
 
     return(
         <div className="flex flex-col basis-2/3">
